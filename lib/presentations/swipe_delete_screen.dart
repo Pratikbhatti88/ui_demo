@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_demo/resources/resource.dart';
 import 'package:ui_demo/resources/styles.dart';
 
 import 'main_screen.dart';
@@ -29,11 +30,11 @@ class _SlideToDeleteState extends State<SlideToDelete> {
                     background: Container(
                       color: Colors.red,
                       alignment: Alignment.centerRight,
-                      padding: EdgeInsets.only(right: 10), 
+                      padding: const EdgeInsets.only(right: 10),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.delete,color: Colors.black),
+                          const Icon(Icons.delete,color:colorBlack),
                           Text('Delete',style: textStyle12(Colors.black))
                         ],
                       ),
@@ -53,7 +54,7 @@ class _SlideToDeleteState extends State<SlideToDelete> {
                 },
               ),
             ),
-            Expanded(flex:2,child: MainScreen())
+            const Expanded(flex:2,child: MainScreen())
           ],
         ),
       ),

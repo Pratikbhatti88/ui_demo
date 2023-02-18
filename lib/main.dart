@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:ui_demo/swipe_delete_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ui_demo/blocs/tour_data/tour_data_bloc.dart';
+import 'package:ui_demo/presentations/swipe_delete_screen.dart';
+import 'package:ui_demo/routes.dart';
 
-import 'main_screen.dart';
+import 'presentations/main_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,14 +15,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => TourPlaceBloc(),
+        ),
+      ],
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
 
-        primarySwatch: Colors.blue,
+          primarySwatch: Colors.blue,
+        ),
+        onGenerateRoute: onGenerateRoute,
       ),
-      home: const SlideToDelete(),
     );
   }
 }
